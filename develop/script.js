@@ -1,6 +1,34 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
+
+addEmployeesBtn.onclick = function () {
+  const firstNamePrompt = prompt("First Name");
+  let lastNamePrompt 
+  let salaryPrompt 
+
+
+  if (firstNamePrompt) {
+     lastNamePrompt = prompt("Last Name");
+  } else {
+    alert("Please try again");
+  };
+
+  if (lastNamePrompt) {
+   salaryPrompt = prompt("Salary"); 
+  } else {
+    alert("Please try again");
+  };
+
+  if (!isNaN(salaryPrompt)) {
+    alert("Thank you!")
+  } else {
+    alert("Please try again by entering a number")
+  }
+
+};
+
+
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
