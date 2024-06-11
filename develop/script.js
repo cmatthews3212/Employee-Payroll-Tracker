@@ -6,6 +6,7 @@ addEmployeesBtn.onclick = function () {
   const firstNamePrompt = prompt("First Name");
   let lastNamePrompt 
   let salaryPrompt 
+  let continueOrCancel 
 
 
   if (firstNamePrompt) {
@@ -21,7 +22,7 @@ addEmployeesBtn.onclick = function () {
   };
 
   if (!isNaN(salaryPrompt)) {
-    alert("Thank you!")
+    continueOrCancel = window.confirm("Click ok to continue to add another or click cancel to see employees listed")
   } else {
     alert("Please try again by entering a number")
   }
