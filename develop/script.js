@@ -1,38 +1,73 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
+let firstNamePrompt;
+let lastNamePrompt ;
+let salaryPrompt ;
+let continueOrCancel;
+let employeesArray = [""];
 
 
-addEmployeesBtn.onclick = function () {
-  const firstNamePrompt = prompt("First Name");
-  let lastNamePrompt 
-  let salaryPrompt 
-  let continueOrCancel 
+// const btnClick = addEmployeesBtn.onclick = function() {
+//   firstNamePrompt = prompt("First Name");
+// };
 
+
+
+
+const btnClick = addEmployeesBtn.onclick = function () {
+
+  firstNamePrompt = prompt("First Name");
+  console.log(`The first name ${firstNamePrompt} is logged`)
 
   if (firstNamePrompt) {
      lastNamePrompt = prompt("Last Name");
+     console.log(`The last name ${lastNamePrompt} is logged`)
   } else {
     alert("Please try again");
   };
 
   if (lastNamePrompt) {
    salaryPrompt = prompt("Salary"); 
+   console.log(`The salary ${salaryPrompt} is logged`)
+
   } else {
     alert("Please try again");
   };
 
   if (!isNaN(salaryPrompt)) {
     continueOrCancel = window.confirm("Click ok to continue to add another or click cancel to see employees listed")
+    console.log(`You clicked OK ${continueOrCancel}`)
   } else {
-    alert("Please try again by entering a number")
+    alert("please try again");
   }
 
-};
+  if (continueOrCancel) {
+    btnClick();
+  } else {
+    alert("Thank you!")
+  }
+
+}; 
+
+
+
+
+
+
+
+
+
+
+// make window.confirm buttons either coninue function or add list to page
 
 
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+//   // TODO: Get user input to create and return an array of employee objects
+//   if (firstNamePrompt) {
+//     employeesArray = firstNamePrompt;
+//     return employeesArray;
+//   }
 }
 
 // Display the average salary
