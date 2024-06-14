@@ -4,50 +4,14 @@ let firstNamePrompt;
 let lastNamePrompt ;
 let salaryPrompt ;
 let continueOrCancel;
-// let firstArray = [""];
-// let lastArray = [""];
-// let salaryArray = [""];
+
 
 const firstTable = document.querySelector('#first-name');
 const lastTable = document.querySelector('#last-name');
 const salaryTable = document.querySelector('#salary');
 
 const table = document.querySelector('thead');
-
-const tableAppend = document.createElement('tr')
-
-
-
-table.appendChild(tableAppend);
-
-// const addTable1 = document.createElement('td');
-// const addTable2 = document.createElement('td');
-// const addTable3 = document.createElement('td');
-
-// addTable1.setAttribute('style', 'width: 100%;');
-
-
-
-
-// firstTable.setAttribute('style', 'background-color: blue;');
-// lastTable.setAttribute('style', 'background-color: green;');
-// salaryTable.setAttribute('style', 'background-color: gray;');
-
-// firstTable.appendChild(addTable1);
-// lastTable.appendChild(addTable2);
-// salaryTable.appendChild(addTable3);
-
-// tableAppend.appendChild(addTable1);
-// tableAppend.appendChild(addTable2);
-// tableAppend.appendChild(addTable3);
-
-
-// addtable1a.setAttribute('style', '');
-
-
-
-// figure out how to make the width of the tables be symmetrical
-
+let tableAppend;
 
 
 
@@ -55,71 +19,55 @@ table.appendChild(tableAppend);
 
 const btnClick = addEmployeesBtn.onclick = function () {
 
+  tableAppend = document.createElement('tr')
+  table.appendChild(tableAppend);
+
   firstNamePrompt = prompt("First Name");
   console.log(`The first name ${firstNamePrompt} is logged`)
 
 
   if (firstNamePrompt) {
-     lastNamePrompt = prompt("Last Name");
-     const addTableText1 = document.createElement('td');
-     tableAppend.appendChild(addTableText1);
-     addTableText1.textContent = firstNamePrompt;
-    //  table.setAttribute('style', 'display: block;');
-     console.log(`The last name ${lastNamePrompt} is logged`)
+    lastNamePrompt = prompt("Last Name");
+    const addTableText1 = document.createElement('td');
+    tableAppend.appendChild(addTableText1);
+    addTableText1.textContent = firstNamePrompt;
+    console.log(`The last name ${lastNamePrompt} is logged`)
 
   } else {
-    alert("Please try again");
-  };
+    console.log("Please Try Again");
+   };
 
   if (lastNamePrompt) {
-   salaryPrompt = prompt("Salary"); 
-   const addTableText2 = document.createElement('td');
-   tableAppend.appendChild(addTableText2);
-   addTableText2.textContent = lastNamePrompt;
-  //  table.setAttribute('style', 'display: block;');
+    salaryPrompt = prompt("Salary"); 
+    const addTableText2 = document.createElement('td');
+    tableAppend.appendChild(addTableText2);
+    addTableText2.textContent = lastNamePrompt;
 
    console.log(`The salary ${salaryPrompt} is logged`)
 
   } else {
-    alert("Please try again");
+    console.log("Please Try Again");
   };
 
   if (!isNaN(salaryPrompt)) {
     continueOrCancel = window.confirm("Click ok to continue to add another or click cancel to see employees listed")
-    const addTableText3 = document.createElement('td');
+   const addTableText3 = document.createElement('td');
     tableAppend.appendChild(addTableText3);
     addTableText3.textContent = salaryPrompt;
-    // table.setAttribute('style', 'display: block;');
     console.log(`You clicked OK ${continueOrCancel}`);
   } else {
-    alert("please try again");
+    console.log("Please Try Again");
   }
 
   if (continueOrCancel) {
-    btnClick();
+    btnClick();   
   } else {
-    alert("Thank you!")
-  }
+    console.log("Thank you!")
+   };
 
-}; 
+};
 
-// for (i = 0; i < 1; i++) {
-//   if (btnClick) {
-//    const createTable = document.createElement('tr');
-   
-//    if (createTable)  {
-//     const append = table.appendChild(createTable);
 
-//     if (append) {
-//       const addText = document.createElement('td');
-//       if (addText) {
-//         addText.textContent = (firstNamePrompt || lastNamePrompt || salaryPrompt);
-//       };
-//     };
-//    };
-
-//   };
-// };
 
 
 
