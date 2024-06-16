@@ -1,10 +1,22 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 let firstNamePrompt;
+let firstNameArray = [];
 let lastNamePrompt ;
+let addLastNameText;
+let lastNameArray = [];
 let salaryPrompt ;
+let salaryArray = [];
 let averageSalary = [];
 let continueOrCancel;
+
+let employees = [
+  {
+    firstName: "",
+    lastName: "",
+    salary: ""
+  }
+];
 
 
 const firstTable = document.querySelector('#first-name');
@@ -33,6 +45,8 @@ const btnClick = addEmployeesBtn.onclick = function () {
     tableAppend.appendChild(addTableText1);
     addTableText1.textContent = firstNamePrompt;
     console.log(`The last name ${lastNamePrompt} is logged`)
+    firstNameArray.push(firstNamePrompt)
+
 
   } else {
     console.log("Please Try Again");
@@ -43,9 +57,12 @@ const btnClick = addEmployeesBtn.onclick = function () {
     salaryPrompt = prompt("Salary"); 
     const addTableText2 = document.createElement('td');
     tableAppend.appendChild(addTableText2);
-    addTableText2.textContent = lastNamePrompt;
+    addLastNameText = addTableText2.textContent = lastNamePrompt;
 
    console.log(`The salary ${salaryPrompt} is logged`)
+   lastNameArray.push(lastNamePrompt);
+
+  
 
   } else {
     console.log("Please Try Again");
@@ -66,6 +83,8 @@ const btnClick = addEmployeesBtn.onclick = function () {
     addTableText3.textContent = dollarAmount;
     console.log(`You clicked OK ${continueOrCancel}`);
 
+    salaryArray.push(salaryPrompt);
+
    averageSalary.push(salaryPrompt);
   } else {
     console.log("Please Try Again by adding a number");
@@ -77,11 +96,69 @@ const btnClick = addEmployeesBtn.onclick = function () {
   } else {
     console.log("Thank you!")
 
+    // Sort employees alphabetically
+
+
+
+
+  //  function sortTable(n) {
+  //   let table1, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  //   table1 = table;
+  //   switching = true;
+
+  //   dir = "asc";
+
+  //   while (switching) {
+  //     switching = false;
+  //     rows = table1.rows;
+
+  //     for (i = 1; i < (rows.length - 1); i++) {
+  //       shouldSwitch = false;
+
+  //       x = rows[i].addTableText1[n];
+  //       y = rows[i + 1].addTableText1[n];
+
+  //       if (dir == "asc") {
+  //         if ( x.lastNamePrompt.toLowerCase() > y.lastNamePrompt.toLowerCase()) {
+  //           shouldSwitch = true;
+  //           break;
+  //         }
+  //       } else if (dir == "desc") {
+  //         if ( x.lastNamePrompt.toLowerCase() < y.lastNamePrompt.toLowerCase()) {
+  //           shouldSwitch = true;
+  //           break;
+  //       }
+  //     }
+
+  //     if (shouldSwitch) {
+  //       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+  //       switching = true;
+  //     }else {
+  //       if (switchcount == 0 && dir == "asc") {
+  //         dir = "desc";
+  //         switching = true;
+  //       }
+  //   } 
+  //   }
+  //  };
+
+  //  sortTable(addTableText2);
+
+
+  // get random employee
+
+
+  employeesArray = [tableAppend.innerText]
+ 
+
+  const randomizeEmployees = Math.floor(Math.random() * employeesArray.length);
+  const randomEmployee = employeesArray[randomizeEmployees];
+  console.log("The random employee is", randomEmployee);
+
+
     // Calculate average of Employee Salaries
 
     const stringToNumbers = averageSalary.map(num => parseInt(num));
-
-    console.log(stringToNumbers);
 
     const calculateAverage = function (numbers) {
       let sum = numbers.reduce((acc, curr) => acc + curr, 0);
@@ -97,9 +174,15 @@ const btnClick = addEmployeesBtn.onclick = function () {
     const averageDollarAmount = averageFormatter.format(average);
 
     console.log("The average salary of all the employee salaries is", averageDollarAmount);
-   };
+
+   }
 
 };
+
+
+
+
+
 
 
 
