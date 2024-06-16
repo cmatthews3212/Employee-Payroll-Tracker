@@ -35,6 +35,7 @@ const btnClick = addEmployeesBtn.onclick = function () {
 
   } else {
     console.log("Please Try Again");
+    !btnClick;
    };
 
   if (lastNamePrompt) {
@@ -47,16 +48,25 @@ const btnClick = addEmployeesBtn.onclick = function () {
 
   } else {
     console.log("Please Try Again");
+    !btnClick;
   };
 
-  if (!isNaN(salaryPrompt)) {
-    continueOrCancel = window.confirm("Click ok to continue to add another or click cancel to see employees listed")
-   const addTableText3 = document.createElement('td');
+  if (!isNaN(salaryPrompt) && salaryPrompt) {
+    continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed")
+    const addTableText3 = document.createElement('td');
+  //  convert number to Dollar amount
+   const formatter = Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+  const dollarAmount = formatter.format(salaryPrompt);
+
     tableAppend.appendChild(addTableText3);
-    addTableText3.textContent = salaryPrompt;
+    addTableText3.textContent = dollarAmount;
     console.log(`You clicked OK ${continueOrCancel}`);
   } else {
-    console.log("Please Try Again");
+    console.log("Please Try Again by adding a number");
+    !btnClick;
   }
 
   if (continueOrCancel) {
