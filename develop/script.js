@@ -268,6 +268,13 @@ let salaryArray = [];
 
    if (continueOrCancel) {
     btnClick()
+   
+   
+
+  
+   } else {
+    console.log("you hit cancel")
+    // add to table
     buildTable(employeesArray); 
     function buildTable(data) {
       let table = document.querySelector('thead');
@@ -282,12 +289,11 @@ let salaryArray = [];
       }
     
     };
-   
 
-  
-   } else {
-    console.log("you hit cancel")
+    // select random employee
     selectRandomEmployee();
+
+    // Calculate average of the salaries
     const stringToNumbers = salaryArray.map(num => parseInt(num));
     const calculateAverage = function (numbers) {
       let sum = numbers.reduce((acc, curr) => acc + curr, 0);
@@ -333,25 +339,10 @@ collectEmployees.append
 // const stringToNumbers = salaryArray.map(num => parseInt(num));
    // Display the average salary
 const displayAverageSalary = function() {
-  // TODO: Calculate and display the average salary
-    // const calculateAverage = function (numbers) {
-    //   let sum = numbers.reduce((acc, curr) => acc + curr, 0);
-    //   let averageSum = sum / numbers.length;
-    //   return averageSum; 
-    // };
-    // const average = calculateAverage(stringToNumbers);
-
-    // const averageFormatter = Intl.NumberFormat('en-US', {
-    //   style: 'currency',
-    //   currency: 'USD',
-    // });
-    // const averageDollarAmount = averageFormatter.format(average);
-
-    // console.log("The average salary between the", salaryArray.length, "employee salaries is", averageDollarAmount);
 
 }
-
-displayAverageSalary();
+// 
+// displayAverageSalary();
 
 
 
@@ -361,7 +352,7 @@ const selectRandomEmployee = function () {
   const randomizeEmployees = Math.floor(Math.random() * employeesArray.length);
   console.log(randomizeEmployees);
   const randomEmployee = employeesArray[randomizeEmployees];
-  console.log("Congratulations to", randomEmployee.name, randomEmployee.lastName, randomEmployee.salary, "our random drawing winner!");
+  console.log("Congratulations to", randomEmployee.name, randomEmployee.lastName, "our random drawing winner!");
 }
 
 
