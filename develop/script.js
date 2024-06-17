@@ -1,211 +1,344 @@
-// Get a reference to the #add-employees-btn element
+// // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-let firstNamePrompt;
-let firstNameArray = [];
-let lastNamePrompt ;
-let addLastNameText;
-let lastNameArray = [];
-let salaryPrompt ;
-let salaryArray = [];
-let averageSalary = [];
-let continueOrCancel;
+// let firstNamePrompt;
+// let firstNameArray = [];
+// let lastNamePrompt ;
+// let addLastNameText;
+// let lastNameArray = [];
+// let salaryPrompt ;
+// let salaryArray = [];
+// let averageSalary = [];
+// let continueOrCancel;
 
 
-let employees = [
-  {
-    firstName: "",
-    lastName: "",
-    salary: ""
-  }
-];
-
-
-const firstTable = document.querySelector('#first-name');
-const lastTable = document.querySelector('#last-name');
-const salaryTable = document.querySelector('#salary');
-
-const table = document.querySelector('thead');
-let tableAppend;
-
-let employeesArray = [];
-
-
-
-
-const btnClick = addEmployeesBtn.onclick = function () {
-
-  tableAppend = document.createElement('tr')
-  table.appendChild(tableAppend);
-  // let array = [tableAppend.innerText]
-
-
-
- console.log(tableAppend)
-//  console.log(array);
- employeesArray.push(tableAppend);
- console.log(employeesArray);
-  
-
- 
-
-  firstNamePrompt = prompt("First Name");
-  console.log(`The first name ${firstNamePrompt} is logged`)
-
-
-  if (firstNamePrompt) {
-    lastNamePrompt = prompt("Last Name");
-    const addTableText1 = document.createElement('td');
-    tableAppend.appendChild(addTableText1);
-    addTableText1.textContent = firstNamePrompt + " ";
-    console.log(`The last name ${lastNamePrompt} is logged`)
-    firstNameArray.push(firstNamePrompt)
-
-  
-    
-
-    
-  
-
-    // employeesArray.push(firstNamePrompt)
-    // employeesArray = employeesArray + firstNamePrompt
-
-
-
-  } else {
-    console.log("Please Try Again");
-    !btnClick;
-   };
-
-  if (lastNamePrompt) {
-    salaryPrompt = prompt("Salary"); 
-    const addTableText2 = document.createElement('td');
-    tableAppend.appendChild(addTableText2);
-    addLastNameText = addTableText2.textContent = lastNamePrompt + " ";
-
-   console.log(`The salary ${salaryPrompt} is logged`)
-   lastNameArray.push(lastNamePrompt);
-   lastNameArray.sort();
-  
-
-  //  employeesArray.push(lastNamePrompt);
-
-  //  employeesArray = employeesArray + lastNamePrompt
-
- console.log("These are the last names", lastNameArray)
- 
-
-
-  
-
-  } else {
-    console.log("Please Try Again");
-    !btnClick;
-  };
-
-  if (!isNaN(salaryPrompt) && salaryPrompt) {
-    continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed")
-    const addTableText3 = document.createElement('td');
-  //  convert number to Dollar amount
-   const formatter = Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });
-  const dollarAmount = formatter.format(salaryPrompt);
-
-    tableAppend.appendChild(addTableText3);
-    addTableText3.textContent = dollarAmount;
-    console.log(`You clicked OK ${continueOrCancel}`);
-
-    // salaryArray.push(salaryPrompt);
-
-    // employeesArray.push(salaryPrompt);
-    // employeesArray = employeesArray + salaryPrompt
-
-
-   averageSalary.push(salaryPrompt);
-  } else {
-    console.log("Please Try Again by adding a number");
-    !btnClick;
-  }
-
-  if (continueOrCancel) {
-    btnClick();   
-  } else {
-    console.log("Thank you!")
-
-    console.log(employeesArray)
-    
-
-
-// order Alphabetically
-
-
-console.log(lastNameArray);
-
-if (lastNameArray) {
-  employeesArray.sort(function (a, b) {
-    if (a.lastNameArray < b.lastNameArray) {
-      return -1
-    } else {
-      return 1;
-    }
-  })
-} else {
-  console.log("Its not working")
-};
-
-// employeesArray.sort(function(a,b) {
-//   if (a.lastNamePrompt < b.lastNamePrompt) {
-//     return -1;
-//   } else {
-//     return 1;
+// let employees = [
+//   {
+//     firstName: "",
+//     lastName: "",
+//     salary: ""
 //   }
-// });
+// ];
 
- console.log(employeesArray.sort());
+
+// const firstTable = document.querySelector('#first-name');
+// const lastTable = document.querySelector('#last-name');
+// const salaryTable = document.querySelector('#salary');
+
+// const table = document.querySelector('thead');
+// let tableAppend;
+
+// let employeesArray = [];
+
+
+
+
+// const btnClick = addEmployeesBtn.onclick = function () {
+
+//   tableAppend = document.createElement('tr')
+//   table.appendChild(tableAppend);
+//   // let array = [tableAppend.innerText]
+
+
+
+//  console.log(tableAppend)
+// //  console.log(array);
+//  employeesArray.push(tableAppend);
+//  console.log(employeesArray);
+  
+
+ 
+
+//   firstNamePrompt = prompt("First Name");
+//   console.log(`The first name ${firstNamePrompt} is logged`)
+
+
+//   if (firstNamePrompt) {
+//     lastNamePrompt = prompt("Last Name");
+//     const addTableText1 = document.createElement('td');
+//     tableAppend.appendChild(addTableText1);
+//     addTableText1.textContent = firstNamePrompt + " ";
+//     console.log(`The last name ${lastNamePrompt} is logged`)
+//     firstNameArray.push(firstNamePrompt)
+
+  
+    
+
+    
+  
+
+//     // employeesArray.push(firstNamePrompt)
+//     // employeesArray = employeesArray + firstNamePrompt
+
+
+
+//   } else {
+//     console.log("Please Try Again");
+//     !btnClick;
+//    };
+
+//   if (lastNamePrompt) {
+//     salaryPrompt = prompt("Salary"); 
+//     const addTableText2 = document.createElement('td');
+//     tableAppend.appendChild(addTableText2);
+//     addLastNameText = addTableText2.textContent = lastNamePrompt + " ";
+
+//    console.log(`The salary ${salaryPrompt} is logged`)
+//    lastNameArray.push(lastNamePrompt);
+//    lastNameArray.sort();
+  
+
+//   //  employeesArray.push(lastNamePrompt);
+
+//   //  employeesArray = employeesArray + lastNamePrompt
+
+//  console.log("These are the last names", lastNameArray)
+ 
+
+
+  
+
+//   } else {
+//     console.log("Please Try Again");
+//     !btnClick;
+//   };
+
+//   if (!isNaN(salaryPrompt) && salaryPrompt) {
+//     continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed")
+//     const addTableText3 = document.createElement('td');
+//   //  convert number to Dollar amount
+//    const formatter = Intl.NumberFormat('en-US', {
+//     style: 'currency',
+//     currency: 'USD',
+//   });
+//   const dollarAmount = formatter.format(salaryPrompt);
+
+//     tableAppend.appendChild(addTableText3);
+//     addTableText3.textContent = dollarAmount;
+//     console.log(`You clicked OK ${continueOrCancel}`);
+
+//     // salaryArray.push(salaryPrompt);
+
+//     // employeesArray.push(salaryPrompt);
+//     // employeesArray = employeesArray + salaryPrompt
+
+
+//    averageSalary.push(salaryPrompt);
+//   } else {
+//     console.log("Please Try Again by adding a number");
+//     !btnClick;
+//   }
+
+//   if (continueOrCancel) {
+//     btnClick();   
+//   } else {
+//     console.log("Thank you!")
+
+//     console.log(employeesArray)
+    
+
+
+// // order Alphabetically
+
+
+// console.log(lastNameArray);
+
+// if (lastNameArray) {
+//   employeesArray.sort(function (a, b) {
+//     if (a.lastNameArray < b.lastNameArray) {
+//       return -1
+//     } else {
+//       return 1;
+//     }
+//   })
+// } else {
+//   console.log("Its not working")
+// };
+
+// // employeesArray.sort(function(a,b) {
+// //   if (a.lastNamePrompt < b.lastNamePrompt) {
+// //     return -1;
+// //   } else {
+// //     return 1;
+// //   }
+// // });
+
+//  console.log(employeesArray.sort());
   
 
 
 
-// pick random employee
+// // pick random employee
 
 
      
-  const randomizeEmployees = Math.floor(Math.random() * employeesArray.length);
-  const randomEmployee = employeesArray[randomizeEmployees];
-  console.log("Congratulations to", randomEmployee.textContent, "our random drawing winner!");
+//   const randomizeEmployees = Math.floor(Math.random() * employeesArray.length);
+//   const randomEmployee = employeesArray[randomizeEmployees];
+//   console.log("Congratulations to", randomEmployee.textContent, "our random drawing winner!");
 
 
-    // Calculate average of Employee Salaries
+//     // Calculate average of Employee Salaries
 
-    const stringToNumbers = averageSalary.map(num => parseInt(num));
+//     const stringToNumbers = averageSalary.map(num => parseInt(num));
 
-    const calculateAverage = function (numbers) {
-      let sum = numbers.reduce((acc, curr) => acc + curr, 0);
-      let averageSum = sum / numbers.length;
-      return averageSum; 
-    };
-    const average = calculateAverage(stringToNumbers);
+//     const calculateAverage = function (numbers) {
+//       let sum = numbers.reduce((acc, curr) => acc + curr, 0);
+//       let averageSum = sum / numbers.length;
+//       return averageSum; 
+//     };
+//     const average = calculateAverage(stringToNumbers);
 
-    const averageFormatter = Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    });
-    const averageDollarAmount = averageFormatter.format(average);
+//     const averageFormatter = Intl.NumberFormat('en-US', {
+//       style: 'currency',
+//       currency: 'USD',
+//     });
+//     const averageDollarAmount = averageFormatter.format(average);
 
-    console.log("The average salary between the", employeesArray.length, "employee salaries is", averageDollarAmount);
+//     console.log("The average salary between the", employeesArray.length, "employee salaries is", averageDollarAmount);
 
-   }
+//    }
 
   
 
 
-};
+// };
+
+
+
+
+  let myArray = {
+    addElem(elem) {
+      [].push.call(this, elem);
+    }
+  };
+  
+let firstName;
+let lastName;
+let salary;
+let continueOrCancel;
+  
+
+
+  const btnClick = addEmployeesBtn.onclick = function () {
+    myArray
+  //   firstName = prompt("firstName");
+  // if (firstName) {
+  //   lastName = prompt("Last Name")
+
+  //   } else {
+  //    console.log("First Name Canceled");
+  //    !btnClick();
+  //   };
+  // if (lastName) {
+  //     salary = prompt("salary")
+
+
+  //    } else {
+  //     console.log("Last Name Canceled");
+  //     !btnClick();
+  //   };
+
+  //   if (!isNaN(salary) && salary) {
+  //         continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed")
+  //         //  convert number to Dollar amount
+  //        const formatter = Intl.NumberFormat('en-US', {
+  //         style: 'currency',
+  //         currency: 'USD',
+  //       });
+  //       const dollarAmount = formatter.format(salary);
+
+  //   } else {
+  //     console.log("Salary is canceled")
+  //     !btnClick();
+  //   }
+
+  //   if (continueOrCancel) {
+  //     btnClick();
+  //   } else {
+  //     console.log("You hit cancel");
+  //     myArray.addElem({name: firstName, lastName: lastName, salary: salary})
+
+  //   }
+
+  firstName = prompt("First Name");
+  lastName = prompt("Last Name");
+  salary = prompt("Salary");
+  continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed");
+
+
+    if (firstName) {
+      lastName
+      if (lastName) {
+        salary 
+        if (!isNaN(salary) && salary) {
+          continueOrCancel
+           //  convert number to Dollar amount
+         const formatter = Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        });
+        const dollarAmount = formatter.format(salary);
+          if (continueOrCancel) {
+            btnClick()
+          } else {
+            console.log("you hit cancel")
+            myArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
+          }
+        }
+      }
+    }
+
+  
+
+
+    console.log(myArray);
+  
+    buildTable(myArray);
+    function buildTable(data) {
+      let table = document.querySelector('thead');
+    
+      for (let i = 0; i < data.length; i++) {
+        let row = `<tr>
+                      <td>${data[i].name}</td>
+                      <td>${data[i].lastName}</td>
+                      <td>${data[i].salary}</td>
+                  </tr>`
+              table.innerHTML += row;
+      }
+    };
+  
+      };
+    
+     
+
+
+     
+     
 
 
 
 
 
+
+
+ 
+  // myArray.addElem({name: "Peter", lastName: "Peterson", salary: "25,000"});
+
+
+// console.log(myArray);
+
+// buildTable(myArray);
+// function buildTable(data) {
+//   let table = document.querySelector('thead');
+
+//   for (let i = 0; i < data.length; i++) {
+//     let row = `<tr>
+//                   <td>${data[i].name}</td>
+//                   <td>${data[i].lastName}</td>
+//                   <td>${data[i].salary}</td>
+//               </tr>`
+//           table.innerHTML += row;
+//   }
+// };
 
 
 
