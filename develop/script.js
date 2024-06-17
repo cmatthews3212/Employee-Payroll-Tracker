@@ -205,7 +205,7 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 
 
-  let myArray = {
+  let employeesArray = {
     addElem(elem) {
       [].push.call(this, elem);
     }
@@ -216,7 +216,7 @@ let lastName;
 let salary;
 let continueOrCancel;
 let dollarAmount;
-let inputArray = [firstName, lastName, dollarAmount];
+let salaryArray = [];
 
 
 
@@ -253,7 +253,10 @@ let inputArray = [firstName, lastName, dollarAmount];
         });
         dollarAmount = formatter.format(salary);
 
-        myArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
+        salaryArray.push(dollarAmount);
+        
+
+        employeesArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
      
       
 
@@ -265,7 +268,7 @@ let inputArray = [firstName, lastName, dollarAmount];
 
    if (continueOrCancel) {
     btnClick()
-    buildTable(myArray); 
+    buildTable(employeesArray); 
     function buildTable(data) {
       let table = document.querySelector('thead');
       
@@ -278,56 +281,26 @@ let inputArray = [firstName, lastName, dollarAmount];
               table.innerHTML += row;
       }
     
-    }
+    };
+   
 
-    console.log(myArray);
+  
    } else {
     console.log("you hit cancel")
+    selectRandomEmployee();
+    
    }
    
    
 }
 
-
-
+console.log(employeesArray);
+console.log(salaryArray)
       
 
   
 
 
- 
-
-  
-    
-    
-     
-
-// console.log(btnClick)
-      
-
-
-
-
-
- 
-  // myArray.addElem({name: "Peter", lastName: "Peterson", salary: "25,000"});
-
-
-// console.log(myArray);
-
-// buildTable(myArray);
-// function buildTable(data) {
-//   let table = document.querySelector('thead');
-
-//   for (let i = 0; i < data.length; i++) {
-//     let row = `<tr>
-//                   <td>${data[i].name}</td>
-//                   <td>${data[i].lastName}</td>
-//                   <td>${data[i].salary}</td>
-//               </tr>`
-//           table.innerHTML += row;
-//   }
-// };
 
 
 
@@ -341,17 +314,37 @@ const collectEmployees = function() {
 collectEmployees.append
 
    // Display the average salary
-const displayAverageSalary = function(employeesArray) {
+const displayAverageSalary = function(salaryArray) {
   // TODO: Calculate and display the average salary
+ let sum = 0;
+ for (let i = 0; i < salaryArray.length; i++) {
+  sum += parseInt(salaryArray[i], 10);
+ }
+ let avg = sum / salaryArray.length
+
+ console.log(avg)
 }
 
-displayAverageSalary();
+if (salaryArray === isNaN) {
+displayAverageSalary(salaryArray);
+
+}
+
 
 
 // Select a random employee
-const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
+
+const selectRandomEmployee = function () {
+  const randomizeEmployees = Math.floor(Math.random() * employeesArray.length);
+  console.log(randomizeEmployees);
+  const randomEmployee = employeesArray[randomizeEmployees];
+  console.log("Congratulations to", randomEmployee.name, randomEmployee.lastName, randomEmployee.salary, "our random drawing winner!");
 }
+
+
+
+
+
 
 /*
   ====================
