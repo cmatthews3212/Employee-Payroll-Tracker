@@ -8,23 +8,11 @@ let employeesArray = {
   addElem(elem) {
     [].push.call(this, elem);
   }
+
 };
- 
-  //   employeesArray.sort((a, b) => {
-  //   let nameA = a.lastName.toUpperCase();
-  //   let nameB = b.lastName.toUpperCase();
-  //   if (nameA < nameB) {
-  //     return -1;
-  //   }
-  //   if (nameA < nameB) {
-  //     return 1
-  //   }
 
-  //   return 0;
 
-  // });
 
-  let employeesObj = [];
   
 let firstName;
 let lastName;
@@ -70,9 +58,27 @@ let salaryArray = [];
 
         salaryArray.push(salary);
         
-
+        
         employeesArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
+        let objArray = Object.values(employeesArray)
+        objArray.sort((a, b) => {
+          let nameA = a.lastName;
+          let nameB = b.lastName;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1
+          }
+      
+          return 0;
+      
+        });
 
+        console.log(objArray);
+
+    
+          
         
       
 
@@ -109,7 +115,7 @@ let salaryArray = [];
     };
 
   
-   
+  
 
 
 
