@@ -45,7 +45,7 @@ const btnClick = addEmployeesBtn.onclick = function () {
  employeesArray.push(tableAppend);
  console.log(employeesArray);
   
-  
+
  
 
   firstNamePrompt = prompt("First Name");
@@ -84,10 +84,16 @@ const btnClick = addEmployeesBtn.onclick = function () {
 
    console.log(`The salary ${salaryPrompt} is logged`)
    lastNameArray.push(lastNamePrompt);
+   lastNameArray.sort();
+  
 
   //  employeesArray.push(lastNamePrompt);
 
   //  employeesArray = employeesArray + lastNamePrompt
+
+ console.log("These are the last names", lastNameArray)
+ 
+
 
   
 
@@ -133,7 +139,30 @@ const btnClick = addEmployeesBtn.onclick = function () {
 
 // order Alphabetically
 
- 
+
+console.log(lastNameArray);
+
+if (lastNameArray) {
+  employeesArray.sort(function (a, b) {
+    if (a.lastNameArray < b.lastNameArray) {
+      return -1
+    } else {
+      return 1;
+    }
+  })
+} else {
+  console.log("Its not working")
+};
+
+// employeesArray.sort(function(a,b) {
+//   if (a.lastNamePrompt < b.lastNamePrompt) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// });
+
+ console.log(employeesArray.sort());
   
 
 
@@ -144,7 +173,7 @@ const btnClick = addEmployeesBtn.onclick = function () {
      
   const randomizeEmployees = Math.floor(Math.random() * employeesArray.length);
   const randomEmployee = employeesArray[randomizeEmployees];
-  console.log("The random employee is", randomEmployee.textContent);
+  console.log("Congratulations to", randomEmployee.textContent, "our random drawing winner!");
 
 
     // Calculate average of Employee Salaries
@@ -164,7 +193,7 @@ const btnClick = addEmployeesBtn.onclick = function () {
     });
     const averageDollarAmount = averageFormatter.format(average);
 
-    console.log("The average salary of all the employee salaries is", averageDollarAmount);
+    console.log("The average salary between the", employeesArray.length, "employee salaries is", averageDollarAmount);
 
    }
 
