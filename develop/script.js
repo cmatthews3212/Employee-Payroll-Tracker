@@ -215,87 +215,60 @@ let firstName;
 let lastName;
 let salary;
 let continueOrCancel;
+let dollarAmount;
+let inputArray = [firstName, lastName, dollarAmount];
+
+
+
   
 
 
   const btnClick = addEmployeesBtn.onclick = function () {
-    myArray
-  //   firstName = prompt("firstName");
-  // if (firstName) {
-  //   lastName = prompt("Last Name")
+   
+   
+  
+  
+   firstName = prompt("firstName")
+  if (firstName) {
+    lastName = prompt("Last Name")
 
-  //   } else {
-  //    console.log("First Name Canceled");
-  //    !btnClick();
-  //   };
-  // if (lastName) {
-  //     salary = prompt("salary")
+    } else {
+     console.log("First Name Canceled");
+     !lastName;
+    };
+  if (lastName) {
+      salary = prompt("salary")
+      
+     } else {
+      console.log("Last Name Canceled");
+      !salary;
+    };
 
-
-  //    } else {
-  //     console.log("Last Name Canceled");
-  //     !btnClick();
-  //   };
-
-  //   if (!isNaN(salary) && salary) {
-  //         continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed")
-  //         //  convert number to Dollar amount
-  //        const formatter = Intl.NumberFormat('en-US', {
-  //         style: 'currency',
-  //         currency: 'USD',
-  //       });
-  //       const dollarAmount = formatter.format(salary);
-
-  //   } else {
-  //     console.log("Salary is canceled")
-  //     !btnClick();
-  //   }
-
-  //   if (continueOrCancel) {
-  //     btnClick();
-  //   } else {
-  //     console.log("You hit cancel");
-  //     myArray.addElem({name: firstName, lastName: lastName, salary: salary})
-
-  //   }
-
-  firstName = prompt("First Name");
-  lastName = prompt("Last Name");
-  salary = prompt("Salary");
-  continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed");
-
-
-    if (firstName) {
-      lastName
-      if (lastName) {
-        salary 
-        if (!isNaN(salary) && salary) {
-          continueOrCancel
-           //  convert number to Dollar amount
+    if (!isNaN(salary) && salary) {
+          continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed")
+          //  convert number to Dollar amount
          const formatter = Intl.NumberFormat('en-US', {
           style: 'currency',
           currency: 'USD',
         });
-        const dollarAmount = formatter.format(salary);
-          if (continueOrCancel) {
-            btnClick()
-          } else {
-            console.log("you hit cancel")
-            myArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
-          }
-        }
-      }
+        dollarAmount = formatter.format(salary);
+
+        myArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
+     
+      
+
+
+    } else {
+      console.log("Salary is canceled")
+      !continueOrCancel;
     }
 
-  
-
-
-    console.log(myArray);
-  
-    buildTable(myArray);
+   if (continueOrCancel) {
+    btnClick()
+    buildTable(myArray); 
     function buildTable(data) {
       let table = document.querySelector('thead');
-    
+      
       for (let i = 0; i < data.length; i++) {
         let row = `<tr>
                       <td>${data[i].name}</td>
@@ -304,17 +277,33 @@ let continueOrCancel;
                   </tr>`
               table.innerHTML += row;
       }
-    };
+    
+    }
+
+    console.log(myArray);
+   } else {
+    console.log("you hit cancel")
+   }
+   
+   
+}
+
+
+
+      
+
   
-      };
+
+
+ 
+
+  
+    
     
      
 
-
-     
-     
-
-
+// console.log(btnClick)
+      
 
 
 
