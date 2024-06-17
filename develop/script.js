@@ -253,7 +253,7 @@ let salaryArray = [];
         });
         dollarAmount = formatter.format(salary);
 
-        salaryArray.push(dollarAmount);
+        salaryArray.push(salary);
         
 
         employeesArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
@@ -288,6 +288,23 @@ let salaryArray = [];
    } else {
     console.log("you hit cancel")
     selectRandomEmployee();
+    const stringToNumbers = salaryArray.map(num => parseInt(num));
+    const calculateAverage = function (numbers) {
+      let sum = numbers.reduce((acc, curr) => acc + curr, 0);
+      let averageSum = sum / numbers.length;
+      return averageSum; 
+    };
+    const average = calculateAverage(stringToNumbers);
+
+    const averageFormatter = Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    const averageDollarAmount = averageFormatter.format(average);
+
+    console.log("The average salary between the", salaryArray.length, "employee salaries is", averageDollarAmount);
+
+  
     
    }
    
@@ -313,22 +330,28 @@ const collectEmployees = function() {
 
 collectEmployees.append
 
+// const stringToNumbers = salaryArray.map(num => parseInt(num));
    // Display the average salary
-const displayAverageSalary = function(salaryArray) {
+const displayAverageSalary = function() {
   // TODO: Calculate and display the average salary
- let sum = 0;
- for (let i = 0; i < salaryArray.length; i++) {
-  sum += parseInt(salaryArray[i], 10);
- }
- let avg = sum / salaryArray.length
+    // const calculateAverage = function (numbers) {
+    //   let sum = numbers.reduce((acc, curr) => acc + curr, 0);
+    //   let averageSum = sum / numbers.length;
+    //   return averageSum; 
+    // };
+    // const average = calculateAverage(stringToNumbers);
 
- console.log(avg)
+    // const averageFormatter = Intl.NumberFormat('en-US', {
+    //   style: 'currency',
+    //   currency: 'USD',
+    // });
+    // const averageDollarAmount = averageFormatter.format(average);
+
+    // console.log("The average salary between the", salaryArray.length, "employee salaries is", averageDollarAmount);
+
 }
 
-if (salaryArray === isNaN) {
-displayAverageSalary(salaryArray);
-
-}
+displayAverageSalary();
 
 
 
