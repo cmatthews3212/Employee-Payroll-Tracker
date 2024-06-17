@@ -1,71 +1,158 @@
-// Get a reference to the #add-employees-btn element
+// // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-let firstNamePrompt;
-let lastNamePrompt ;
-let salaryPrompt ;
-let continueOrCancel;
-
-
-const firstTable = document.querySelector('#first-name');
-const lastTable = document.querySelector('#last-name');
-const salaryTable = document.querySelector('#salary');
-
-const table = document.querySelector('thead');
-let tableAppend;
 
 
 
 
-
-const btnClick = addEmployeesBtn.onclick = function () {
-
-  tableAppend = document.createElement('tr')
-  table.appendChild(tableAppend);
-
-  firstNamePrompt = prompt("First Name");
-  console.log(`The first name ${firstNamePrompt} is logged`)
-
-
-  if (firstNamePrompt) {
-    lastNamePrompt = prompt("Last Name");
-    const addTableText1 = document.createElement('td');
-    tableAppend.appendChild(addTableText1);
-    addTableText1.textContent = firstNamePrompt;
-    console.log(`The last name ${lastNamePrompt} is logged`)
-
-  } else {
-    console.log("Please Try Again");
-   };
-
-  if (lastNamePrompt) {
-    salaryPrompt = prompt("Salary"); 
-    const addTableText2 = document.createElement('td');
-    tableAppend.appendChild(addTableText2);
-    addTableText2.textContent = lastNamePrompt;
-
-   console.log(`The salary ${salaryPrompt} is logged`)
-
-  } else {
-    console.log("Please Try Again");
-  };
-
-  if (!isNaN(salaryPrompt)) {
-    continueOrCancel = window.confirm("Click ok to continue to add another or click cancel to see employees listed")
-   const addTableText3 = document.createElement('td');
-    tableAppend.appendChild(addTableText3);
-    addTableText3.textContent = salaryPrompt;
-    console.log(`You clicked OK ${continueOrCancel}`);
-  } else {
-    console.log("Please Try Again");
+let employeesArray = {
+  addElem(elem) {
+    [].push.call(this, elem);
   }
-
-  if (continueOrCancel) {
-    btnClick();   
-  } else {
-    console.log("Thank you!")
-   };
-
 };
+ 
+  //   employeesArray.sort((a, b) => {
+  //   let nameA = a.lastName.toUpperCase();
+  //   let nameB = b.lastName.toUpperCase();
+  //   if (nameA < nameB) {
+  //     return -1;
+  //   }
+  //   if (nameA < nameB) {
+  //     return 1
+  //   }
+
+  //   return 0;
+
+  // });
+
+  let employeesObj = [];
+  
+let firstName;
+let lastName;
+let salary;
+let continueOrCancel;
+let dollarAmount;
+let salaryArray = [];
+
+
+
+  
+
+
+  const btnClick = addEmployeesBtn.onclick = function () {
+   
+   
+   
+  
+   firstName = prompt("firstName")
+  if (firstName) {
+    lastName = prompt("Last Name")
+
+    } else {
+     console.log("First Name Canceled");
+     !lastName;
+    };
+  if (lastName) {
+      salary = prompt("salary")
+      
+     } else {
+      console.log("Last Name Canceled");
+      !salary;
+    };
+
+    if (!isNaN(salary) && salary) {
+          continueOrCancel = window.confirm("Click ok to continue to add another employee or click cancel to see employees listed")
+          //  convert number to Dollar amount
+         const formatter = Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        });
+        dollarAmount = formatter.format(salary);
+
+        salaryArray.push(salary);
+        
+
+        employeesArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
+
+        
+      
+
+
+    } else {
+      console.log("Salary is canceled")
+      !continueOrCancel;
+    }
+
+   if (continueOrCancel) {
+    btnClick()
+   
+   
+
+  
+   } else {
+  
+    
+
+    // add to table
+    buildTable(employeesArray); 
+    function buildTable(data) {
+      let table = document.querySelector('thead');
+      let x;
+      
+      for (let i = 0; i < data.length; i++) {
+        let row = `<tr>
+                      <td>${data[i].name}</td>
+                      <td>${data[i].lastName}</td>
+                      <td>${data[i].salary}</td>
+                  </tr>`
+              table.innerHTML += row;
+      }
+    };
+
+  
+   
+
+
+
+
+// sortEmployees();
+
+    // select random employee
+    selectRandomEmployee();
+
+    // Calculate average of the salaries
+    const stringToNumbers = salaryArray.map(num => parseInt(num));
+    const calculateAverage = function (numbers) {
+      let sum = numbers.reduce((acc, curr) => acc + curr, 0);
+      let averageSum = sum / numbers.length;
+      return averageSum; 
+    };
+    const average = calculateAverage(stringToNumbers);
+
+    const averageFormatter = Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    const averageDollarAmount = averageFormatter.format(average);
+
+    console.log("The average salary between the", salaryArray.length, "employee salaries is", averageDollarAmount);
+
+  
+    
+   }
+   
+   
+}
+
+const selectRandomEmployee = function () {
+  const randomizeEmployees = Math.floor(Math.random() * employeesArray.length);
+  const randomEmployee = employeesArray[randomizeEmployees];
+  console.log("Congratulations to", randomEmployee.name, randomEmployee.lastName, "our random drawing winner!");
+}
+
+      
+
+  
+
 
 
 
@@ -79,21 +166,30 @@ const btnClick = addEmployeesBtn.onclick = function () {
 
 // collectEmployees.append
 
-// // Display the average salary
-// const displayAverageSalary = function(employeesArray) {
-//   // TODO: Calculate and display the average salary
-// }
+// // const stringToNumbers = salaryArray.map(num => parseInt(num));
+//    // Display the average salary
+// const displayAverageSalary = function() {
 
-// // Select a random employee
-// const getRandomEmployee = function(employeesArray) {
-//   // TODO: Select and display a random employee
 // }
+// // 
+// // displayAverageSalary();
 
-// /*
-//   ====================
-//   STARTER CODE
-//   Do not modify any of the code below this line:
-// */
+
+
+// Select a random employee
+
+
+
+
+
+
+
+
+/*
+  ====================
+  STARTER CODE
+  Do not modify any of the code below this line:
+*/
 
 // // Display employee data in an HTML table
 // const displayEmployees = function(employeesArray) {
