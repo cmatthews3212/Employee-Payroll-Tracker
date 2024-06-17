@@ -10,6 +10,7 @@ let salaryArray = [];
 let averageSalary = [];
 let continueOrCancel;
 
+
 let employees = [
   {
     firstName: "",
@@ -26,6 +27,7 @@ const salaryTable = document.querySelector('#salary');
 const table = document.querySelector('thead');
 let tableAppend;
 
+let employeesArray = [];
 
 
 
@@ -34,6 +36,17 @@ const btnClick = addEmployeesBtn.onclick = function () {
 
   tableAppend = document.createElement('tr')
   table.appendChild(tableAppend);
+  // let array = [tableAppend.innerText]
+
+
+
+ console.log(tableAppend)
+//  console.log(array);
+ employeesArray.push(tableAppend);
+ console.log(employeesArray);
+  
+  
+ 
 
   firstNamePrompt = prompt("First Name");
   console.log(`The first name ${firstNamePrompt} is logged`)
@@ -43,9 +56,19 @@ const btnClick = addEmployeesBtn.onclick = function () {
     lastNamePrompt = prompt("Last Name");
     const addTableText1 = document.createElement('td');
     tableAppend.appendChild(addTableText1);
-    addTableText1.textContent = firstNamePrompt;
+    addTableText1.textContent = firstNamePrompt + " ";
     console.log(`The last name ${lastNamePrompt} is logged`)
     firstNameArray.push(firstNamePrompt)
+
+  
+    
+
+    
+  
+
+    // employeesArray.push(firstNamePrompt)
+    // employeesArray = employeesArray + firstNamePrompt
+
 
 
   } else {
@@ -57,10 +80,14 @@ const btnClick = addEmployeesBtn.onclick = function () {
     salaryPrompt = prompt("Salary"); 
     const addTableText2 = document.createElement('td');
     tableAppend.appendChild(addTableText2);
-    addLastNameText = addTableText2.textContent = lastNamePrompt;
+    addLastNameText = addTableText2.textContent = lastNamePrompt + " ";
 
    console.log(`The salary ${salaryPrompt} is logged`)
    lastNameArray.push(lastNamePrompt);
+
+  //  employeesArray.push(lastNamePrompt);
+
+  //  employeesArray = employeesArray + lastNamePrompt
 
   
 
@@ -83,7 +110,11 @@ const btnClick = addEmployeesBtn.onclick = function () {
     addTableText3.textContent = dollarAmount;
     console.log(`You clicked OK ${continueOrCancel}`);
 
-    salaryArray.push(salaryPrompt);
+    // salaryArray.push(salaryPrompt);
+
+    // employeesArray.push(salaryPrompt);
+    // employeesArray = employeesArray + salaryPrompt
+
 
    averageSalary.push(salaryPrompt);
   } else {
@@ -96,64 +127,24 @@ const btnClick = addEmployeesBtn.onclick = function () {
   } else {
     console.log("Thank you!")
 
-    // Sort employees alphabetically
+    console.log(employeesArray)
+    
 
 
+// order Alphabetically
 
-
-  //  function sortTable(n) {
-  //   let table1, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  //   table1 = table;
-  //   switching = true;
-
-  //   dir = "asc";
-
-  //   while (switching) {
-  //     switching = false;
-  //     rows = table1.rows;
-
-  //     for (i = 1; i < (rows.length - 1); i++) {
-  //       shouldSwitch = false;
-
-  //       x = rows[i].addTableText1[n];
-  //       y = rows[i + 1].addTableText1[n];
-
-  //       if (dir == "asc") {
-  //         if ( x.lastNamePrompt.toLowerCase() > y.lastNamePrompt.toLowerCase()) {
-  //           shouldSwitch = true;
-  //           break;
-  //         }
-  //       } else if (dir == "desc") {
-  //         if ( x.lastNamePrompt.toLowerCase() < y.lastNamePrompt.toLowerCase()) {
-  //           shouldSwitch = true;
-  //           break;
-  //       }
-  //     }
-
-  //     if (shouldSwitch) {
-  //       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-  //       switching = true;
-  //     }else {
-  //       if (switchcount == 0 && dir == "asc") {
-  //         dir = "desc";
-  //         switching = true;
-  //       }
-  //   } 
-  //   }
-  //  };
-
-  //  sortTable(addTableText2);
-
-
-  // get random employee
-
-
-  employeesArray = [tableAppend.innerText]
  
+  
 
+
+
+// pick random employee
+
+
+     
   const randomizeEmployees = Math.floor(Math.random() * employeesArray.length);
   const randomEmployee = employeesArray[randomizeEmployees];
-  console.log("The random employee is", randomEmployee);
+  console.log("The random employee is", randomEmployee.textContent);
 
 
     // Calculate average of Employee Salaries
@@ -176,6 +167,9 @@ const btnClick = addEmployeesBtn.onclick = function () {
     console.log("The average salary of all the employee salaries is", averageDollarAmount);
 
    }
+
+  
+
 
 };
 
