@@ -8,23 +8,14 @@ let employeesArray = {
   addElem(elem) {
     [].push.call(this, elem);
   }
+
 };
- 
-  //   employeesArray.sort((a, b) => {
-  //   let nameA = a.lastName.toUpperCase();
-  //   let nameB = b.lastName.toUpperCase();
-  //   if (nameA < nameB) {
-  //     return -1;
-  //   }
-  //   if (nameA < nameB) {
-  //     return 1
-  //   }
 
-  //   return 0;
+let objArray = [];
 
-  // });
 
-  let employeesObj = [];
+
+
   
 let firstName;
 let lastName;
@@ -70,9 +61,31 @@ let salaryArray = [];
 
         salaryArray.push(salary);
         
-
+        
         employeesArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
+        objArray = Object.values(employeesArray)
+        objArray.pop();
+        objArray.pop();
+        objArray.sort((a, b) => {
+          let nameA = a.lastName;
+          let nameB = b.lastName;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1
+          }
+      
+          return 0;
+      
+        });
 
+        
+
+        console.log(objArray);
+
+    
+          
         
       
 
@@ -93,7 +106,7 @@ let salaryArray = [];
     
 
     // add to table
-    buildTable(employeesArray); 
+    buildTable(objArray); 
     function buildTable(data) {
       let table = document.querySelector('thead');
       let x;
@@ -109,7 +122,7 @@ let salaryArray = [];
     };
 
   
-   
+  
 
 
 
