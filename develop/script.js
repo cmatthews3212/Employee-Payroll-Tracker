@@ -64,6 +64,8 @@ let salaryArray = [];
         
         employeesArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
         objArray = Object.values(employeesArray)
+        objArray.pop();
+        objArray.pop();
         objArray.sort((a, b) => {
           let nameA = a.lastName;
           let nameB = b.lastName;
