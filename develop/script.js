@@ -80,26 +80,16 @@ let salaryArray = [];
       
         });
 
-        
-
-        console.log(objArray);
-
-    
-          
-        
-      
-
+  
 
     } else {
-      console.log("Salary is canceled")
+      console.log("Please enter a number")
       !continueOrCancel;
     }
 
    if (continueOrCancel) {
     btnClick()
    
-   
-
   
    } else {
   
