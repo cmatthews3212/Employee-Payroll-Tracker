@@ -11,6 +11,9 @@ let employeesArray = {
 
 };
 
+let objArray = [];
+
+
 
 
   
@@ -60,7 +63,7 @@ let salaryArray = [];
         
         
         employeesArray.addElem({name: firstName, lastName: lastName, salary: dollarAmount});
-        let objArray = Object.values(employeesArray)
+        objArray = Object.values(employeesArray)
         objArray.sort((a, b) => {
           let nameA = a.lastName;
           let nameB = b.lastName;
@@ -74,6 +77,8 @@ let salaryArray = [];
           return 0;
       
         });
+
+        
 
         console.log(objArray);
 
@@ -99,7 +104,7 @@ let salaryArray = [];
     
 
     // add to table
-    buildTable(employeesArray); 
+    buildTable(objArray); 
     function buildTable(data) {
       let table = document.querySelector('thead');
       let x;
