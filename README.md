@@ -19,7 +19,21 @@ To use this app, click the "Add Employees" button and use the prompts to input y
 <a href="https://cmatthews3212.github.io/Employee-Payroll-Tracker/">Payroll Website</a>
 
 ## Credits
-N/A
+- Virtual assistant used to help code the calculate average function starting on line 125.
+    - This is in repo commit "Calculate employee average salaries."
+- Virtual assistant used to help create the number formatting function starting on line 55.
+    - This is in repo commit "Make cancel buttons work properly on the prompts." 
+- Virtual assistant used to help create the selectRandomEmployee function on line 149.
+    - This is in repo commit "Pick a random employee."
+- Youtuber Dennis Ivy helped me construct my buildTable function starting on line 98.
+    - This is in repo commit "Redo andmake in an array."
+    - <a href="https://www.youtube.com/watch?v=Q9aYU1Ufkpk&t=77s">Youtube Video</a>
+- Mdn Web Docs helped me create the sort function starting on line 69.
+    - This is in repo commit "Make object sort properly." 
+    - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">Mdn Website</a>
+
+
+
 
 ## License
 Please refer to the LICENSE in the repo.
