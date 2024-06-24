@@ -4,7 +4,7 @@
 Please note that I did not use the starter code and I attempted to write the application from scratch. 
 
 ## Description
-This project is an learning opturnity where I get to write an application that allows me to imput employees with their first names, last names, and salaries. After I finish imputing the employees they will appear on the page in a table, sorted alphabetically by  last name. The console will also show a random employee that is selected as well as the average of all the salaries combined. 
+This project is a learning oportunity where I get to write an application that allows me to imput employees with their first names, last names, and salaries. After I finish imputing the employees they will appear on the page in a table, sorted alphabetically by  last name. The console will also show a random employee that is selected as well as the average of all the salaries combined. 
 
 ## Installation
 N/A
